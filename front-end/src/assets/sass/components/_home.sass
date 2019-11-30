@@ -6,14 +6,39 @@
     width: 18em
     margin: 5em auto
     padding: 2em
-    background-color: rgba(255, 255, 255, 0.651)
+    background-color: rgba(255, 255, 255, 0.76)
     text-align: center
-    font-family: 'Caveat', cursive
     box-shadow: 0 0 1em black
 
     &-title
+      font-family: 'Caveat', cursive
       font-size: 1.6em
+    
+    &-form
+      margin-top: 2em
+      font-family: 'Dosis', sans-serif
 
+      &-content
+
+        &-label
+          display: block
+
+        &-input
+          border: none
+          border-radius: .4em
+          padding: .3em .5em
+          font-size: .9em
+          margin-bottom: 1.5em
+
+          &-date:focus
+            outline-offset: 0
+            left: 0
+            bottom: 0
+
+        &-button
+          margin-top: 1em
+          border: none
+            
   &-picture
     position: fixed
     width: 200%
