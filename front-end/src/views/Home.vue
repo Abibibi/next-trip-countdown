@@ -4,31 +4,24 @@
       <h1 class="home-text-title">Mes prochaines vacances</h1>
       <div class="home-text-form">
         <form class="home-text-form-content">
-          <Email labelText="Prénom" />
-          <div>
-            <!-- <label class="home-text-form-content-label" for="city">La ville où je vais</label> -->
-            <input
-              class="home-text-form-content-input"
-              type="text"
-              name="city"
-              id="city"
-              title="Saisissez la ville où vous rendez"
-              required
-            >
-          </div>
-          <div>
-            <!-- <label class="home-text-form-content-label" for="date">Ma date de voyage</label> -->
-            <input class="home-text-form-content-input home-text-form-content-input-date"
-              ref="datepicker"
-              @focus="datepickerDate"
-              @blur="datepickerText"
-              placeholder="Date du voyage"
-              name="date"
-              id="date"
-              title="Renseignez la date de votre voyage"
-              required
-            >
-          </div>
+          <Field
+            labelText="Prénom"
+            nameIdForText="firstname"
+            titleText="Saisissez votre prénom"
+            fieldType="textField"
+          />
+          <Field
+            labelText="Ville de séjour"
+            nameIdForText="city"
+            titleText="Saisissez la ville où vous vous rendez"
+            fieldType="textField"
+          />
+          <Field
+            labelText="Date du voyage"
+            nameIdForText="date"
+            titleText="Renseignez la date de votre voyage"
+            fieldType="dateField"
+          />
           <div>
             <button class="home-text-form-content-button">Ok</button>
           </div>
@@ -44,25 +37,16 @@
 <script>
 
 import beach from '@/assets/images/plage.jpg'
-import Email from '@/components/Field.vue'
+import Field from '@/components/Field.vue'
 
 export default {
   name: 'home',
   components: {
-    Email
+    Field
   },
   data () {
     return {
       beach
-    }
-  },
-  methods: {
-    datepickerDate () {
-      this.$refs.datepicker.type = 'date'
-    },
-
-    datepickerText () {
-      this.$refs.datepicker.type = 'text'
     }
   }
 }
