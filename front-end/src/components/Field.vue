@@ -1,28 +1,13 @@
 <template>
-  <div v-if="fieldTypeValue === 'textField'" class="form-content">
+  <div class="form-content">
     <input
       class="form-content-input"
-      type="text"
+      :type="type"
       :name="nameIdFor"
       :id="nameIdFor"
       :title="title"
       required
     >
-    <label
-      class="form-content-label"
-      :for="nameIdFor"
-    >
-      {{ label }}
-    </label>
-  </div>
-  <div v-else class="form-content">
-    <datepicker
-      class="form-content-input"
-      :name="nameIdFor"
-      :id="nameIdFor"
-      :title="title"
-      required
-    ></datepicker>
     <label
       class="form-content-label"
       :for="nameIdFor"
@@ -33,24 +18,20 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs-datepicker'
 
 export default {
-  components: {
-    Datepicker
-  },
   props: {
-    labelText: String,
+    inputType: String,
     nameIdForText: String,
     titleText: String,
-    fieldType: String
+    labelText: String
   },
   data () {
     return {
-      label: this.labelText,
+      type: this.inputType,
       nameIdFor: this.nameIdForText,
       title: this.titleText,
-      fieldTypeValue: this.fieldType
+      label: this.labelText
     }
   }
 }
