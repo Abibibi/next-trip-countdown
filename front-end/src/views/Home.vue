@@ -4,17 +4,7 @@
       <h1 class="home-text-title">Mes prochaines vacances</h1>
       <div class="home-text-form">
         <form class="home-text-form-content">
-          <div>
-            <!-- <label class="home-text-form-content-label" for="firstname">Prénom</label> -->
-            <input class="home-text-form-content-input"
-              type="text"
-              name="firstname"
-              id="firstname"
-              placeholder="Prénom"
-              title="Saisissez votre prénom"
-              required
-            >
-          </div>
+          <Email labelText="Prénom" />
           <div>
             <!-- <label class="home-text-form-content-label" for="city">La ville où je vais</label> -->
             <input
@@ -22,7 +12,6 @@
               type="text"
               name="city"
               id="city"
-              placeholder="Ville de séjour"
               title="Saisissez la ville où vous rendez"
               required
             >
@@ -55,9 +44,13 @@
 <script>
 
 import beach from '@/assets/images/plage.jpg'
+import Email from '@/components/Field.vue'
 
 export default {
   name: 'home',
+  components: {
+    Email
+  },
   data () {
     return {
       beach
