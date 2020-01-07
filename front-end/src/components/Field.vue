@@ -6,6 +6,7 @@
       :name="nameIdFor"
       :id="nameIdFor"
       :title="title"
+      :value="value"
       required
     >
     <label
@@ -23,6 +24,7 @@ export default {
   props: {
     inputType: String,
     nameIdForText: String,
+    valueText: String,
     titleText: String,
     labelText: String
   },
@@ -30,6 +32,7 @@ export default {
     return {
       type: this.inputType,
       nameIdFor: this.nameIdForText,
+      value: this.valueText,
       title: this.titleText,
       label: this.labelText
     }
