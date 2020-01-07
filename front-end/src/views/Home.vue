@@ -7,18 +7,21 @@
           <Field
             inputType="text"
             nameIdForText="firstname"
+            :valueText="firstname"
             titleText="Saisissez votre prénom"
             labelText="Prénom"
           />
           <Field
             inputType="text"
             nameIdForText="city"
+            :valueText="city"
             titleText="Saisissez la ville où vous vous rendez"
             labelText="Ville de séjour"
           />
           <Field
             inputType="date"
             nameIdForText="date"
+            :valueText="date"
             titleText="Renseignez la date de votre voyage"
             labelText="Date du voyage"
           />
@@ -38,6 +41,7 @@
 
 import beach from '@/assets/images/plage.jpg'
 import Field from '@/components/Field.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'home',
@@ -48,6 +52,13 @@ export default {
     return {
       beach
     }
+  },
+  computed: {
+    ...mapState([
+      'firstname',
+      'city',
+      'date'
+    ])
   }
 }
 </script>
