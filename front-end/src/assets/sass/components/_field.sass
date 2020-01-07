@@ -1,10 +1,35 @@
 .form
  
   &-content
+    position: relative
 
     &-input
       border: none
       border-radius: .4em
-      padding: .3em .5em
+      padding: 4.32px 7.2px
       font-size: .9em
       margin-bottom: 1.5em
+      transition: padding .3s
+
+    &-label
+      position: absolute
+      left: 3rem
+      top: .2rem
+      color: gray
+
+  
+.vdp-datepicker div input
+  border: none
+  border-radius: .4em
+  padding: 4.32px 7.2px
+  font-size: .9em
+  /* margin-bottom: 1.5em auto */
+  transition: padding .3s
+  display: block
+  margin: auto
+
+.vdp-datepicker__calendar
+  width: 200px !important
+  left: 2.8em
+      
+      
