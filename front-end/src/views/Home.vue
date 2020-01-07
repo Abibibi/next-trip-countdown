@@ -5,22 +5,22 @@
       <div class="home-text-form">
         <form class="home-text-form-content">
           <Field
-            labelText="Prénom"
+            inputType="text"
             nameIdForText="firstname"
             titleText="Saisissez votre prénom"
-            fieldType="textField"
+            labelText="Prénom"
           />
           <Field
-            labelText="Ville de séjour"
+            inputType="text"
             nameIdForText="city"
             titleText="Saisissez la ville où vous vous rendez"
-            fieldType="textField"
+            labelText="Ville de séjour"
           />
           <Field
-            labelText="Date du voyage"
+            inputType="date"
             nameIdForText="date"
             titleText="Renseignez la date de votre voyage"
-            fieldType="dateField"
+            labelText="Date du voyage"
           />
           <div>
             <button class="home-text-form-content-button">Ok</button>
