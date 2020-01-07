@@ -3,7 +3,7 @@
     <div class="home-text">
       <h1 class="home-text-title">Mes prochaines vacances</h1>
       <div class="home-text-form">
-        <form class="home-text-form-content">
+        <form @submit.prevent="handleSubmit" class="home-text-form-content">
           <Field
             inputType="text"
             nameIdForText="firstname"
@@ -41,7 +41,7 @@
 
 import beach from '@/assets/images/plage.jpg'
 import Field from '@/components/Field.vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'home',
@@ -59,6 +59,22 @@ export default {
       'city',
       'date'
     ])
+  },
+  methods: {
+    ...mapActions([
+      'sendInputValue'
+    ]),
+    handleSubmit () {
+      console.log(this.firstname)
+
+      const userInfo = {
+        userName: this.firstname,
+        place: this.city,
+        travellingDate: this.date
+      }
+
+      this.sendInputValue(userInfo)
+    }
   }
 }
 </script>
