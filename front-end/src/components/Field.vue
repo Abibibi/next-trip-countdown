@@ -7,6 +7,7 @@
       :id="nameIdFor"
       :title="title"
       :value="value"
+      @change="handleChange"
       required
     >
     <label
@@ -19,6 +20,8 @@
 </template>
 
 <script>
+
+import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -35,6 +38,16 @@ export default {
       value: this.valueText,
       title: this.titleText,
       label: this.labelText
+    }
+  },
+  methods: {
+    ...mapActions([
+      'changeInput'
+    ]),
+    handleChange (event) {
+      const { name, value } = event.target
+      const payload = { name, value }
+      this.changeInput(payload)
     }
   }
 }
