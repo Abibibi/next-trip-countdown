@@ -15,6 +15,7 @@
     <label
       class="form-content-label"
       :for="nameIdFor"
+      ref="label"
     >
       {{ label }}
     </label>
@@ -52,6 +53,8 @@ export default {
       With textInBlack function, input text turns black on focus
       and is thus visible to the user */
       this.$refs.input.classList.add('form-content-input-black')
+      /* to make label go up */
+      this.$refs.label.classList.add('form-content-label-animation')
     },
     handleChange (event) {
       const { name, value } = event.target
