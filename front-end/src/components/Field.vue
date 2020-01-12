@@ -6,6 +6,8 @@
       :name="nameIdFor"
       :id="nameIdFor"
       :title="title"
+      ref="input"
+      @focus="textInBlack"
       :value="value"
       @change="handleChange"
       required
@@ -44,6 +46,13 @@ export default {
     ...mapActions([
       'changeInput'
     ]),
+    textInBlack () {
+      /* Input text is initially transparent (see rule for input in css)
+      to hide date input text (jj/mm/aaa), which is displayed by default.
+      With textInBlack function, input text turns black on focus
+      and is thus visible to the user */
+      this.$refs.input.classList.add('form-content-input-black')
+    },
     handleChange (event) {
       const { name, value } = event.target
       const payload = { name, value }

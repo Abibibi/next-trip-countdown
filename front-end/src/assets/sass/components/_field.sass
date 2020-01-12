@@ -12,6 +12,11 @@
       font-size: .9em
       margin-bottom: 1.5em
       transition: padding .3s
+      // so jj/mm/aaaa default text in date input is not visible
+      color: transparent
+
+      &-black
+        color: black
 
     &-label
       position: absolute
@@ -19,8 +24,6 @@
       top: .2rem
       color: gray
 
-input::-webkit-datetime-edit
-  color: transparent
-
-input:focus::-webkit-datetime-edit
-  color: #000
+// to make sure that date input arrow stays black while text is transparent
+input[type="date"]::-webkit-calendar-picker-indicator
+  color: black
