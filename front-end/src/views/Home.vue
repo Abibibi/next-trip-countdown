@@ -75,9 +75,11 @@ export default {
 
       this.sendInputValue(userInfo)
 
-      this.user.firstname = ''
-      this.user.city = ''
-      this.user.date = ''
+      this.user = {
+        firstname: '',
+        city: '',
+        date: ''
+      }
     }
   }
 }

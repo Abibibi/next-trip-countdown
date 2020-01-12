@@ -1,5 +1,6 @@
 export default {
   firstname: '',
   city: '',
-  date: ''
+  date: '',
+  logged: false
 }
