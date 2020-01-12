@@ -7,9 +7,8 @@
       :id="nameIdFor"
       :title="title"
       ref="input"
-      @focus="textInBlack"
-      :value="value"
-      @change="handleChange"
+      @focus="textBlackLabelUp"
+      v-model="inputVal"
       required
     >
     <label
@@ -30,7 +29,7 @@ export default {
   props: {
     inputType: String,
     nameIdForText: String,
-    valueText: String,
+    value: String,
     titleText: String,
     labelText: String
   },
@@ -38,7 +37,6 @@ export default {
     return {
       type: this.inputType,
       nameIdFor: this.nameIdForText,
-      value: this.valueText,
       title: this.titleText,
       label: this.labelText
     }
@@ -47,7 +45,7 @@ export default {
     ...mapActions([
       'changeInput'
     ]),
-    textInBlack () {
+    textBlackLabelUp () {
       /* Input text is initially transparent (see rule for input in css)
       to hide date input text (jj/mm/aaa), which is displayed by default.
       With textInBlack function, input text turns black on focus
@@ -55,11 +53,16 @@ export default {
       this.$refs.input.classList.add('form-content-input-black')
       /* to make label go up */
       this.$refs.label.classList.add('form-content-label-animation')
-    },
-    handleChange (event) {
-      const { name, value } = event.target
-      const payload = { name, value }
-      this.changeInput(payload)
+    }
+  },
+  computed: {
+    inputVal: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   }
 }

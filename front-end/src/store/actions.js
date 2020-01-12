@@ -9,7 +9,7 @@ export default {
     axios.post('http://localhost:5000/users/add', userInfo)
       .then((response) => {
         console.log(response)
-        commit('inputSubmitted')
+        commit('inputSubmitted', userInfo)
       })
       .catch((error) => {
         console.log(error)
