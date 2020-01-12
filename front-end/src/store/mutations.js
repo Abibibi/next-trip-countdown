@@ -3,9 +3,9 @@ export default {
     state[name] = value
   },
 
-  inputSubmitted: (state) => {
-    state['firstname'] = ''
-    state['city'] = ''
-    state['date'] = ''
+  inputSubmitted: (state, { userName, place, travellingDate }) => {
+    state.firstname = userName
+    state.city = place
+    state.date = travellingDate
   }
 }

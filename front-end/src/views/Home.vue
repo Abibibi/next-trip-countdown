@@ -7,21 +7,21 @@
           <Field
             inputType="text"
             nameIdForText="firstname"
-            :valueText="firstname"
+            v-model="user.firstname"
             titleText="Saisissez votre prénom"
             labelText="Prénom"
           />
           <Field
             inputType="text"
             nameIdForText="city"
-            :valueText="city"
+            v-model="user.city"
             titleText="Saisissez la ville où vous vous rendez"
             labelText="Ville de séjour"
           />
           <Field
             inputType="date"
             nameIdForText="date"
-            :valueText="date"
+            v-model="user.date"
             titleText="Renseignez la date de votre voyage"
             labelText="Date du voyage"
           />
@@ -41,7 +41,7 @@
 
 import beach from '@/assets/images/plage.jpg'
 import Field from '@/components/Field.vue'
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'home',
@@ -50,30 +50,34 @@ export default {
   },
   data () {
     return {
-      beach
+      beach,
+      user: {
+        firstname: '',
+        city: '',
+        date: ''
+      }
     }
-  },
-  computed: {
-    ...mapState([
-      'firstname',
-      'city',
-      'date'
-    ])
   },
   methods: {
     ...mapActions([
       'sendInputValue'
     ]),
     handleSubmit () {
-      console.log(this.firstname)
+      console.log(this.user.firstname)
+
+      const { firstname, city, date } = this.user
 
       const userInfo = {
-        userName: this.firstname,
-        place: this.city,
-        travellingDate: this.date
+        userName: firstname,
+        place: city,
+        travellingDate: date
       }
 
       this.sendInputValue(userInfo)
+
+      this.user.firstname = ''
+      this.user.city = ''
+      this.user.date = ''
     }
   }
 }

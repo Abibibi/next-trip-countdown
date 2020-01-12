@@ -2,24 +2,49 @@
  
   &-content
     position: relative
+    height: 4rem
 
     &-input
-      width: 10.5em
+      width: 13.7rem
+      height: 2.6rem
+      padding: .6rem .5rem 0
       border: none
-      border-radius: .4em
-      padding: .3em .5em
+      border-radius: .4rem
       font-size: .9em
-      margin-bottom: 1.5em
+      margin-bottom: 3.5rem
       transition: padding .3s
+      // so jj/mm/aaaa default text in date input is not visible
+      color: transparent
+
+      &-black
+        color: black
 
     &-label
       position: absolute
-      left: 2.7rem
-      top: .2rem
+      left: 0.7rem
+      top: .6rem
+      font-size: .9em
       color: gray
 
-input::-webkit-datetime-edit
-  color: transparent
+      &-animation
+        font-size: .6em
+        text-transform: uppercase
+        color: darkgrey
+        display: block
+        animation: label .5s
+        // with animation-fill-mode property,
+        // styles are kept as such one animation
+        // is done
+        animation-fill-mode: forwards
 
-input:focus::-webkit-datetime-edit
-  color: #000
+// to make sure that date input arrow stays black while text is transparent
+input[type="date"]::-webkit-calendar-picker-indicator
+  color: black
+
+@keyframes label
+  0%
+    transform: translateY(0)
+    color: black
+  100%
+    transform: translateY(-.8em)
+    color: darkgrey
