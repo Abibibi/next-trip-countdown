@@ -4,11 +4,18 @@ import Home from '@/views/Home.vue'
 import Welcome from '@/views/Welcome.vue'
 import store from '@/store'
 
+/* // to handle errors when trying to push same path (if path is the same for Home and Welcome views)
+const originalPush = VueRouter.prototype.push
+
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+} */
+
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/login',
     name: 'home',
     meta: {
       requiresVisitor: true
