@@ -12,5 +12,16 @@ export default {
       .catch((error) => {
         console.log(error)
       })
+  },
+
+  catchPicture: ({ commit }) => {
+    axios.get('http://localhost:5000/pictures/onePicture')
+      .then((response) => {
+        console.log(response)
+        commit('pictureReceived', response.data[0])
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }

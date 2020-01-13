@@ -1,20 +1,32 @@
 <template>
-  <Picture :picture="beach" pictureAlt="Plage vue en plongée"/>
+  <Picture :picture="pictureUrl" :pictureAlt="pictureAlt"/>
 </template>
 
 <script>
 import Picture from '@/components/Picture'
-import beach from '@/assets/images/plage.jpg'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'welcome',
   components: {
     Picture
   },
-  data () {
-    return {
-      beach
-    }
+  computed: {
+    ...mapState([
+      'pictureUrl',
+      'pictureAlt'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'catchPicture'
+    ])
+  },
+  mounted () {
+    // using this.$nextTick to make sure all components were mounted
+    this.$nextTick(function () {
+      this.catchPicture()
+    })
   }
 }
 </script>

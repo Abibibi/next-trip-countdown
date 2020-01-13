@@ -4,5 +4,10 @@ export default {
     state.city = place
     state.date = travellingDate
     state.logged = true
+  },
+
+  pictureReceived: (state, { url, alt }) => {
+    state.pictureUrl = url
+    state.pictureAlt = alt
   }
 }
