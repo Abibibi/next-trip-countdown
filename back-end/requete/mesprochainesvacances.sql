@@ -39,10 +39,11 @@ SET default_with_oids = false;
 
 CREATE TABLE public.pictures (
     id integer NOT NULL,
-    name text,
+    url text,
     places_id integer,
-    created_at date DEFAULT now() NOT NULL,
-    updated_at date DEFAULT now()
+    alt text,
+    "createdAt" date NOT NULL,
+    "updatedAt" date
 );
 
 
@@ -166,7 +167,12 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: pictures; Type: TABLE DATA; Schema: public; Owner: mesprochainesvacances
 --
 
-COPY public.pictures (id, name, places_id, created_at, updated_at) FROM stdin;
+COPY public.pictures (id, url, places_id, alt, "createdAt", "updatedAt") FROM stdin;
+1	https://www.cjoint.com/doc/20_01/JAnpm6EIb2A_bonobo-2139562-1920.jpg	1	"Deux bonobos de profil dégustant des fruits de la passion"	2020-01-13	2020-01-13
+2	https://www.cjoint.com/doc/20_01/JAnptiYwtqA_kisangani-4215410-1920.jpg	1	"Un bateau navigue sur le fleuve Congo à Kisangani, alors que le soleil se couche."	2020-01-13	2020-01-13
+3	https://www.cjoint.com/c/JAnpBn7JJjA	1	"Vue ensoleillée sur des maisons en contrebas et une végétation luxuriante"	2020-01-13	2020-01-13
+4	https://www.cjoint.com/doc/20_01/JAnpDx6DCGA_river-trading-4215417-1920.jpg	1	"Femme debout qui rame dans une pirogue transportant un bidon jaune"	2020-01-13	2020-01-13
+5	https://www.cjoint.com/doc/20_01/JAnpLhfxcHA_bonobo-2139563-1920.jpg	1	"Un bonobo mange de la salade"	2020-01-13	2020-01-13
 \.
 
 
@@ -200,6 +206,16 @@ SELECT pg_catalog.setval('public.places_id_seq', 1, false);
 
 COPY public.users (id, firstname, travelling_date, places_id, created_at, updated_at) FROM stdin;
 11	Abi	2020-05-02	1	2019-11-28	2019-11-28
+12	Abeba	2020-08-01	2	2020-01-06	2020-01-06
+13	Joachim	2020-12-06	2	2020-01-06	2020-01-06
+14	Kiese	2020-01-18	1	2020-01-07	2020-01-07
+15	Tesfaye	2020-01-31	2	2020-01-07	2020-01-07
+20	Fekere	2020-01-16	1	2020-01-12	2020-01-12
+21	Boubou	2020-01-31	1	2020-01-12	2020-01-12
+22	Irène	2020-01-19	2	2020-01-12	2020-01-12
+26	ok	2010-01-01	\N	2020-01-12	2020-01-12
+27	Aqua	2020-03-02	2	2020-01-12	2020-01-12
+28	kiki	2013-09-09	\N	2020-01-12	2020-01-12
 \.
 
 
@@ -207,7 +223,7 @@ COPY public.users (id, firstname, travelling_date, places_id, created_at, update
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mesprochainesvacances
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 11, true);
+SELECT pg_catalog.setval('public.users_id_seq', 28, true);
 
 
 --
