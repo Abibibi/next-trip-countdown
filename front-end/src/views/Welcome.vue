@@ -1,5 +1,7 @@
 <template>
-  <Picture :picture="pictureUrl" :pictureAlt="pictureAlt"/>
+  <div>
+    <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
+  </div>
 </template>
 
 <script>
@@ -17,16 +19,16 @@ export default {
       'pictureAlt'
     ])
   },
+  //
   methods: {
     ...mapActions([
       'catchPicture'
     ])
   },
   mounted () {
-    // using this.$nextTick to make sure all components were mounted
-    this.$nextTick(function () {
-      this.catchPicture()
-    })
+    this.catchPicture()/* .then(this.$nextTick).then(() => {
+      console.log(this.pictureUrl) // => 'updated')
+    }) */
   }
 }
 </script>

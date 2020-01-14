@@ -1,6 +1,6 @@
 <template>
   <div class="picture">
-    <img class="picture-content" :alt="alt" :src="photo">
+    <img class="picture-content" :alt="altObtained" :src="pictureObtained">
   </div>
 </template>
 
@@ -11,10 +11,13 @@ export default {
     picture: String,
     pictureAlt: String
   },
-  data () {
-    return {
-      photo: this.picture,
-      alt: this.pictureAlt
+  // using computed property to get updated data from state
+  computed: {
+    pictureObtained () {
+      return this.picture
+    },
+    altObtained () {
+      return this.pictureAlt
     }
   }
 }
