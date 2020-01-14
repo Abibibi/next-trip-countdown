@@ -1,6 +1,7 @@
 const Router = require('express-promise-router');
 const router = new Router();
 const { pool } = require('../config/database');
+const authMiddleware = require('../utils/authMiddleware');
 
 router.route('/add').post(async (req, res) => {
     const { userName, travellingDate, place } = req.body;
@@ -24,5 +25,9 @@ router.route('/add').post(async (req, res) => {
     
     res.status(200).json('Username, travelling_date and places_id added in users table');
 });
+
+router.route('/checkExistingUser').get(authMiddleware, async (req, res) => {
+    res.json(req.session.user);
+})
 
 module.exports = router;
