@@ -4,7 +4,7 @@
       <div class="welcome-content">
         <div class="welcome-content-text">Plus que {{ days }} jours avant vos vacances à {{ city }}, {{ firstname }} !</div>
       </div>
-      <Countdown :journeyDate="dateAndTime" />
+      <Countdown :journeyDate="date" />
     </div>
     <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
   </div>
@@ -26,7 +26,8 @@ export default {
       'pictureUrl',
       'pictureAlt',
       'firstname',
-      'city'
+      'city',
+      'date'
     ]),
     ...mapGetters([
       'days',

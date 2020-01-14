@@ -30,10 +30,14 @@ export default {
     }
   },
   computed: {
+    date () {
+      return this.journeyDate
+    },
     dateInMilliseconds () {
-      return Math.trunc(Date.parse(this.journeyDate) / 1000)
+      return Math.trunc(Date.parse(this.date) / 1000)
     },
     seconds () {
+      console.log((this.dateInMilliseconds - this.now) % 60)
       return (this.dateInMilliseconds - this.now) % 60
     },
     minutes () {
