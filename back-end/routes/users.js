@@ -40,7 +40,7 @@ router.route('/remove').get(authMiddleware, async (req, res) => {
 
     await req.session.destroy();
 
-    res.json('Utilisateur supprimé de la base de données')
+    res.json('Utilisateur supprimé de la base de données et session supprimée')
 });
 
 module.exports = router;
