@@ -3,7 +3,7 @@ const router = new Router();
 const { pool } = require('../config/database');
 
 router.route('/onePicture').get(async (req, res) => {
-    const cityId = '1';
+    const cityId = req.session.user.placeId;
     const text = `SELECT url, alt FROM pictures
     WHERE places_id = $1
     ORDER BY RANDOM()
