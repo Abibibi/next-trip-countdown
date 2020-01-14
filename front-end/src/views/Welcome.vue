@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="welcome">
-      <div class="welcome-text">Plus que nombre jours avant vos vacances à {{ city }}, {{ firstname }} !</div>
+      <div class="welcome-text">Plus que {{ days }} jours avant vos vacances à {{ city }}, {{ firstname }} !</div>
     </div>
     <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 import Picture from '@/components/Picture'
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'welcome',
@@ -22,6 +22,9 @@ export default {
       'pictureAlt',
       'firstname',
       'city'
+    ]),
+    ...mapGetters([
+      'days'
     ])
   },
   methods: {
