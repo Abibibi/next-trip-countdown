@@ -1,6 +1,13 @@
 import Vue from 'vue'
 
 export default {
+  userInfoReceived: (state, { name, travellingDate, placeName }) => {
+    state.firstname = name
+    state.city = placeName
+    state.date = travellingDate
+    state.logged = true
+  },
+
   citiesReceived: (state, payload) => {
     state.cities = payload
   },

@@ -2,6 +2,18 @@ import axios from 'axios'
 import router from '@/router'
 
 export default {
+  isAuth: ({ commit }) => {
+    axios.get('http://localhost:5000/users/checkExistingUser', { withCredentials: true })
+      .then((response) => {
+        console.log(response)
+        commit('userInfoReceived', response.data)
+        router.push('/')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  },
+
   catchCities: ({ commit }) => {
     axios.get('http://localhost:5000/places/', { withCredentials: true })
       .then((response) => {
