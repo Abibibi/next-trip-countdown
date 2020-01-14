@@ -1,6 +1,6 @@
 const Router = require('express-promise-router');
 const router = new Router();
-const { pool, client } = require('../config/database');
+const { pool } = require('../config/database');
 
 router.route('/onePicture').get(async (req, res) => {
     const cityId = '1';

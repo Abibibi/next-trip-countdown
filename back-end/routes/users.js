@@ -1,6 +1,6 @@
 const Router = require('express-promise-router');
 const router = new Router();
-const { pool, client } = require('../config/database');
+const { pool } = require('../config/database');
 
 router.route('/add').post(async (req, res) => {
     const { userName, travellingDate, place } = req.body;
@@ -10,7 +10,6 @@ router.route('/add').post(async (req, res) => {
 
     await pool.query(text, values);
     res.status(200).json('Username, travelling_date and places_id added in users table');
-   
 });
 
 module.exports = router;
