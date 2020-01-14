@@ -18,7 +18,8 @@ router.route('/add').post(async (req, res) => {
         id: userInserted.rows[0].id,
         name: userInserted.rows[0].firstname,
         placeId: userInserted.rows[0].places_id,
-        placeName: place
+        placeName: place,
+        travellingDate
     }
     
     res.status(200).json('Username, travelling_date and places_id added in users table');
