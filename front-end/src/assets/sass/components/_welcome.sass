@@ -8,6 +8,7 @@
         justify-content: start
 
     &-text
+        background-color: rgba(255, 255, 255, 0.712)
         @include responsive(phone)
             position: relative
             z-index: 2
@@ -19,5 +20,9 @@
             width: 100%
 
         @include responsive(tab-port)
-            top: 42rem
+            top: 20rem
+
+        @include responsive(tab-land)
+            top: 43.5rem
             text-align: left
+            font-size: 1.2em
