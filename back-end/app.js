@@ -1,15 +1,30 @@
 // requires
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const session = require('express-session');
 
 // express is called to create app
 const app = express();
 
-require('dotenv').config();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:8080',
+    credentials: true
+}));
+
 app.use(express.json());
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      secure: process.env.NODE_ENV === 'production'
+    }
+  }));
 
 // ROUTES & API
 const usersRouter = require('./routes/users');
