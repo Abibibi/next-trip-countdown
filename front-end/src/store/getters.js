@@ -1,7 +1,7 @@
-import moment from 'moment'
-
+/* import moment from 'moment'
+ */
 export default {
-  days: (state) => {
+  /* days: (state) => {
     const now = moment().format('YYYY/MM/DD')
     const nowFormatted = moment(now, 'YYYY/MM/DD')
     const laterFormatted = moment(state.date, 'YYYY/MM/DD')
@@ -9,8 +9,8 @@ export default {
 
     return daysFormatted
   },
-
+ */
   dateAndTime: (state) => {
-    return `${state.date} 00:00:00`
+    return `${state.date} 17:40:00`
   }
 }

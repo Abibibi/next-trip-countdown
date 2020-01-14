@@ -2,9 +2,15 @@
   <div>
     <div class="welcome">
       <div class="welcome-content">
-        <div class="welcome-content-text">Plus que {{ days }} {{ dayValue }} avant vos vacances à {{ city }}, {{ firstname }} !</div>
+        <div class="welcome-content-text" v-if="dateInMilliseconds > now">Plus que {{ days }} {{ dayNumber }} avant vos vacances à {{ city }}, {{ firstname }} !</div>
+        <div class="welcome-content-text" v-else >Ça y est, vous êtes en vacances, {{ firstname }} ! Bon voyage à {{ city }} !</div>
       </div>
-      <Countdown :journeyDate="date" />
+      <Countdown
+        :countDays="days"
+        :countHours="hours"
+        :countMinutes="minutes"
+        :countSeconds="seconds"
+      />
     </div>
     <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
   </div>
@@ -23,7 +29,8 @@ export default {
   },
   data () {
     return {
-      dayValue: ''
+      dayNumber: '',
+      now: Math.trunc((new Date()).getTime() / 1000)
     }
   },
   computed: {
@@ -35,28 +42,47 @@ export default {
       'date'
     ]),
     ...mapGetters([
-      'days',
       'dateAndTime'
-    ])
+    ]),
+    dateInMilliseconds () {
+      return Math.trunc(Date.parse(this.dateAndTime) / 1000)
+    },
+    seconds () {
+      return (this.dateInMilliseconds - this.now) % 60
+    },
+    minutes () {
+      return Math.trunc((this.dateInMilliseconds - this.now) / 60) % 60
+    },
+    hours () {
+      return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60) % 24
+    },
+    days () {
+      return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60 / 24)
+    }
   },
   methods: {
     ...mapActions([
       'catchPicture'
     ]),
-    dayNumber () {
-      switch (this.days) {
-        case 0 || 1:
-          this.dayValue = 'jour'
+    dayNumberValue () {
+      switch (true) {
+        case (this.days < 2):
+          this.dayNumber = 'jour'
           break
         default:
-          this.dayValue = 'jours'
+          this.dayNumber = 'jours'
       }
-      return this.dayValue
+      return this.dayNumber
     }
   },
   mounted () {
     this.catchPicture()
-    this.dayNumber()
+    this.dayNumberValue()
+    console.log(this.dateInMilliseconds)
+    console.log(this.now)
+    window.setInterval(() => {
+      this.now = Math.trunc((new Date()).getTime() / 1000)
+    }, 1000)
   }
 }
 </script>

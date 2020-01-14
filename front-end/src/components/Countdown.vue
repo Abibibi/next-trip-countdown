@@ -22,31 +22,26 @@
 <script>
 export default {
   props: {
-    journeyDate: String
-  },
-  data () {
-    return {
-      now: Math.trunc((new Date()).getTime() / 1000)
-    }
+    countDays: Number,
+    countHours: Number,
+    countMinutes: Number,
+    countSeconds: Number
   },
   computed: {
-    date () {
-      return this.journeyDate
-    },
-    dateInMilliseconds () {
-      return Math.trunc(Date.parse(this.date) / 1000)
-    },
     seconds () {
-      return (this.dateInMilliseconds - this.now) % 60
+      return this.countSeconds
     },
     minutes () {
-      return Math.trunc((this.dateInMilliseconds - this.now) / 60) % 60
+      return this.countMinutes
     },
     hours () {
-      return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60) % 24
+      return this.countHours
     },
     days () {
-      return Math.trunc((this.dateInMilliseconds - this.now) / 60 / 60 / 24)
+      return this.countDays
+    },
+    dayNumberFigure () {
+      return this.dayNumberFunction
     }
   },
   filters: {
@@ -59,11 +54,6 @@ export default {
       }
       return value
     }
-  },
-  mounted () {
-    window.setInterval(() => {
-      this.now = Math.trunc((new Date()).getTime() / 1000)
-    }, 1000)
   }
 }
 </script>
