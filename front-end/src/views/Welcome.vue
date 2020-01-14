@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="welcome">
+      <div class="welcome-text">Plus que nombre jours avant vos vacances à {{ city }}, {{ firstname }} !</div>
+    </div>
     <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
   </div>
 </template>
@@ -16,19 +19,18 @@ export default {
   computed: {
     ...mapState([
       'pictureUrl',
-      'pictureAlt'
+      'pictureAlt',
+      'firstname',
+      'city'
     ])
   },
-  //
   methods: {
     ...mapActions([
       'catchPicture'
     ])
   },
   mounted () {
-    this.catchPicture()/* .then(this.$nextTick).then(() => {
-      console.log(this.pictureUrl) // => 'updated')
-    }) */
+    this.catchPicture()
   }
 }
 </script>

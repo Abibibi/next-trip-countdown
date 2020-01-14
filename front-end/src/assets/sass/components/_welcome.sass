@@ -1,0 +1,23 @@
+.welcome
+    display: flex
+
+    @include responsive(phone)
+        justify-content: center
+    
+    @include responsive(tab-land)
+        justify-content: start
+
+    &-text
+        @include responsive(phone)
+            position: relative
+            z-index: 2
+            top: 15rem
+            text-align: center
+            padding: 2rem
+            font-weight: 600
+            font-size: 1.5em
+            width: 100%
+
+        @include responsive(tab-port)
+            top: 42rem
+            text-align: left
