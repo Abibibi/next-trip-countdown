@@ -7,21 +7,26 @@
     &-block
         display: flex
         flex-direction: column
-        margin: 1rem
+        margin: .8rem
    
         &-digit
-            color: #706b69
-            font-size: 2.7em
+            color: #196b5b
             font-family: 'Roboto', serif
             margin: 0
             text-align: center
-            top: 15rem
+            @include responsive(phone)
+                font-size: 2.2em
+            @include responsive(tab-land)
+                font-size: 2.7em
 
         &-text 
-            color: #1abc9c
-            font-size: 1em
+            color: #3f3c3a
             font-family: 'Roboto Condensed', serif
             font-weight: 40
             margin: 0
             text-align: center
+            @include responsive(phone)
+                font-size: 0.7em
+            @include responsive(tab-land)
+                font-size: 1em
 
