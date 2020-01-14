@@ -8,5 +8,9 @@ export default {
     const daysFormatted = laterFormatted.diff(nowFormatted, 'days')
 
     return daysFormatted
+  },
+
+  dateAndTime: (state) => {
+    return `${state.date} 00:00:00`
   }
 }

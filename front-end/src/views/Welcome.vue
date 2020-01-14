@@ -1,19 +1,24 @@
 <template>
   <div>
     <div class="welcome">
-      <div class="welcome-text">Plus que {{ days }} jours avant vos vacances à {{ city }}, {{ firstname }} !</div>
+      <div class="welcome-content">
+        <div class="welcome-content-text">Plus que {{ days }} jours avant vos vacances à {{ city }}, {{ firstname }} !</div>
+      </div>
+      <Countdown :journeyDate="dateAndTime" />
     </div>
     <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
   </div>
 </template>
 
 <script>
+import Countdown from '@/components/Countdown'
 import Picture from '@/components/Picture'
 import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'welcome',
   components: {
+    Countdown,
     Picture
   },
   computed: {
@@ -24,7 +29,8 @@ export default {
       'city'
     ]),
     ...mapGetters([
-      'days'
+      'days',
+      'dateAndTime'
     ])
   },
   methods: {

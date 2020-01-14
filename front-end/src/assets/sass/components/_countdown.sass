@@ -1,0 +1,29 @@
+.countdown
+    display: flex
+    flex-direction: row
+    justify-content: center
+    @include responsive(phone)
+        align-items: flex-end
+
+    &-block
+        display: flex
+        flex-direction: column
+        margin: 1rem
+   
+        &-digit
+            color: #706b69
+            font-size: 3em
+            font-family: 'Roboto', serif
+            margin: 0
+            text-align: center
+            top: 15rem
+
+        &-text 
+            color: #1abc9c
+            font-size: 1em
+            font-family: 'Roboto Condensed', serif
+            font-weight: 40
+            margin-top: 0
+            margin-bottom: 1rem
+            text-align: center
+

@@ -1,18 +1,21 @@
 .welcome
     display: flex
-
+    position: absolute
+    z-index: 2
     @include responsive(phone)
-        justify-content: center
-    
+        flex-direction: column
     @include responsive(tab-land)
-        justify-content: start
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        background: rgba(255, 255, 255, 0.63)
+        vertical-align: bottom
+        bottom: 0
 
-    &-text
-        background-color: rgba(255, 255, 255, 0.712)
+    &-content
+        font-family: 'Montserrat', sans-serif
         @include responsive(phone)
-            position: relative
-            z-index: 2
-            top: 15rem
             text-align: center
             padding: 2rem
             font-weight: 600
@@ -20,9 +23,8 @@
             width: 100%
 
         @include responsive(tab-port)
-            top: 20rem
 
         @include responsive(tab-land)
-            top: 43.5rem
             text-align: left
             font-size: 1.2em
+        
