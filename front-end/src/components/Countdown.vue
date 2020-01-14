@@ -60,6 +60,11 @@ export default {
       }
       return value
     }
+  },
+  mounted () {
+    window.setInterval(() => {
+      this.now = Math.trunc((new Date()).getTime() / 1000)
+    }, 1000)
   }
 }
 </script>
