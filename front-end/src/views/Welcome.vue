@@ -78,8 +78,6 @@ export default {
   mounted () {
     this.catchPicture()
     this.dayNumberValue()
-    console.log(this.dateInMilliseconds)
-    console.log(this.now)
     window.setInterval(() => {
       this.now = Math.trunc((new Date()).getTime() / 1000)
     }, 1000)
