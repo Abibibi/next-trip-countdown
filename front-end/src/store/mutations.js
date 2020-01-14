@@ -24,5 +24,14 @@ export default {
     // equivalent: state.pictureUrl = url
     Vue.set(state, 'pictureUrl', url)
     Vue.set(state, 'pictureAlt', alt)
+  },
+
+  userDeleted: (state) => {
+    state.firstname = ''
+    state.city = ''
+    state.date = ''
+    state.logged = false
+    state.pictureUrl = ''
+    state.pictureAlt = ''
   }
 }

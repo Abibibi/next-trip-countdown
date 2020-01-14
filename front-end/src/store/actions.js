@@ -45,5 +45,17 @@ export default {
       .catch((error) => {
         console.log(error)
       })
+  },
+
+  removeUser: ({ commit }) => {
+    axios.get('http://localhost:5000/users/remove', { withCredentials: true })
+      .then((response) => {
+        console.log(response)
+        commit('userDeleted')
+        router.push('/login')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
