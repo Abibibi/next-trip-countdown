@@ -6,9 +6,7 @@ const config = {
 }
 
 const pool = new Pool(config);
-const client = new Client(config);
 
 module.exports = {
-    pool,
-    client
+    pool
 }

@@ -3,6 +3,7 @@ const router = new Router();
 const { pool } = require('../config/database');
 const authMiddleware = require('../utils/authMiddleware');
 
+
 router.route('/onePicture').get(authMiddleware, async (req, res) => {
     const cityId = req.session.user.placeId;
     const text = `SELECT url, alt FROM pictures
