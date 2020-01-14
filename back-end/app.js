@@ -18,7 +18,7 @@ const picturesRouter = require('./routes/pictures');
 
 app.use('/users', usersRouter);
 app.use('/places', placesRouter);
-app.use('/places', picturesRouter);
+app.use('/pictures', picturesRouter);
 
 // port
 const port = process.env.PORT || 5000;

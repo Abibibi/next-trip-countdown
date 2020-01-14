@@ -4,7 +4,8 @@ const { pool, client } = require('../config/database');
 
 router.route('/add').post(async (req, res) => {
     const { userName, travellingDate, place } = req.body;
-    const text = 'INSERT INTO users (firstname, travelling_date, places_id) VALUES ($1, $2, (SELECT id FROM places WHERE name = $3))';
+    const text = `INSERT INTO users (firstname, travelling_date, places_id)
+    VALUES ($1, $2, (SELECT id FROM places WHERE name = $3))`;
     const values = [userName, travellingDate, place];
 
     await pool.query(text, values);
