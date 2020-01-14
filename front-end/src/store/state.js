@@ -1,4 +1,5 @@
 export default {
+  cities: [],
   firstname: '',
   city: '',
   date: '',

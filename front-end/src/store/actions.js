@@ -2,6 +2,16 @@ import axios from 'axios'
 import router from '@/router'
 
 export default {
+  catchCities: ({ commit }) => {
+    axios.get('http://localhost:5000/places/')
+      .then((response) => {
+        commit('citiesReceived', response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  },
+
   sendInputValue: ({ commit }, userInfo) => {
     axios.post('http://localhost:5000/users/add', userInfo)
       .then((response) => {

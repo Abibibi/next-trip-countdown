@@ -10,7 +10,11 @@
       @focus="textBlackLabelUp"
       v-model="inputVal"
       required
+      :list="list"
     >
+    <datalist v-if="list" id="allCities" >
+      <option v-for="({ name: cityName, id: cityId }) in citiesToDisplay" :key="cityId">{{ cityName }}</option>
+    </datalist>
     <label
       class="form-content-label"
       :for="nameIdFor"
@@ -30,13 +34,16 @@ export default {
     inputType: String,
     nameIdForText: String,
     value: String,
+    listText: String,
     titleText: String,
-    labelText: String
+    labelText: String,
+    citiesCaught: Array
   },
   data () {
     return {
       type: this.inputType,
       nameIdFor: this.nameIdForText,
+      list: this.listText,
       title: this.titleText,
       label: this.labelText
     }
@@ -63,6 +70,9 @@ export default {
       set (val) {
         this.$emit('input', val)
       }
+    },
+    citiesToDisplay () {
+      return this.citiesCaught
     }
   }
 }

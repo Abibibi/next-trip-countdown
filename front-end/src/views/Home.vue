@@ -17,6 +17,8 @@
             v-model="user.city"
             titleText="Saisissez la ville où vous vous rendez"
             labelText="Ville de séjour"
+            listText="allCities"
+            :citiesCaught="cities"
           />
           <Field
             inputType="date"
@@ -40,7 +42,7 @@
 import beach from '@/assets/images/plage.jpg'
 import Field from '@/components/Field.vue'
 import Picture from '@/components/Picture.vue'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'home',
@@ -58,8 +60,14 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState([
+      'cities'
+    ])
+  },
   methods: {
     ...mapActions([
+      'catchCities',
       'sendInputValue'
     ]),
     handleSubmit () {
@@ -81,6 +89,9 @@ export default {
         date: ''
       }
     }
+  },
+  mounted () {
+    this.catchCities()
   }
 }
 </script>
