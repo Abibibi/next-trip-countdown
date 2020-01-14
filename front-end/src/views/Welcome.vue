@@ -4,6 +4,9 @@
       <div class="welcome-content">
         <div class="welcome-content-text" v-if="dateInMilliseconds > now">Plus que {{ days }} {{ dayNumber }} avant vos vacances à {{ city }}, {{ firstname }} !</div>
         <div class="welcome-content-text" v-else >Ça y est, vous êtes en vacances, {{ firstname }} ! Bon voyage à {{ city }} !</div>
+        <div class="welcome-content-other">
+          <a class="welcome-content-other-link" href="#">Choisir une autre destination</a>
+        </div>
       </div>
       <Countdown
         :countDays="days"
@@ -11,6 +14,7 @@
         :countMinutes="minutes"
         :countSeconds="seconds"
       />
+      <!-- <div class="welcome-other">Choisir une autre destination</div> -->
     </div>
     <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
   </div>
