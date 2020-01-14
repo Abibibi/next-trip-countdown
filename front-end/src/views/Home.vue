@@ -31,9 +31,7 @@
         </form>
       </div>
     </div>
-    <div class="home-picture">
-      <img class="home-picture-content" alt="Plage vue en plongée" :src="beach">
-    </div>
+    <Picture :picture="beach" pictureAlt="Plage vue en plongée" />
   </div>
 </template>
 
@@ -41,12 +39,14 @@
 
 import beach from '@/assets/images/plage.jpg'
 import Field from '@/components/Field.vue'
+import Picture from '@/components/Picture.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'home',
   components: {
-    Field
+    Field,
+    Picture
   },
   data () {
     return {

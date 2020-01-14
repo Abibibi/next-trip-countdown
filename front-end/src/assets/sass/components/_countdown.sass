@@ -1,0 +1,32 @@
+.countdown
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+    &-block
+        display: flex
+        flex-direction: column
+        margin: .8rem
+   
+        &-digit
+            color: #196b5b
+            font-family: 'Roboto', serif
+            margin: 0
+            text-align: center
+            @include responsive(phone)
+                font-size: 2.2em
+            @include responsive(tab-land)
+                font-size: 2.7em
+
+        &-text 
+            color: #3f3c3a
+            font-family: 'Roboto Condensed', serif
+            font-weight: 40
+            margin: 0
+            text-align: center
+            @include responsive(phone)
+                font-size: 0.7em
+            @include responsive(tab-land)
+                font-size: 1em
+

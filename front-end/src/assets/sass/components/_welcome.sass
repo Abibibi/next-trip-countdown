@@ -1,0 +1,31 @@
+.welcome
+    display: flex
+    position: absolute
+    z-index: 2
+    width: 100%
+    background: rgba(202, 191, 191, 0.753)
+    bottom: 0
+    @include responsive(phone)
+        flex-direction: column
+        
+    @include responsive(tab-land)
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+
+    &-content
+        font-family: 'Montserrat', sans-serif
+        @include responsive(phone)
+            text-align: center
+            padding: 1.1rem 1.7rem 0.6rem
+            font-weight: 600
+            font-size: 1.2em
+            width: 100%
+
+        @include responsive(tab-port)
+
+        @include responsive(tab-land)
+            text-align: left
+            font-size: 1.2em
+            padding: 1.3rem
+        

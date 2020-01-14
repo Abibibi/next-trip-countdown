@@ -2,5 +2,7 @@ export default {
   firstname: '',
   city: '',
   date: '',
-  logged: true
+  logged: false,
+  pictureUrl: '',
+  pictureAlt: ''
 }
