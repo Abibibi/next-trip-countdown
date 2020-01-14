@@ -2,7 +2,7 @@
   <div>
     <div class="welcome">
       <div class="welcome-content">
-        <div class="welcome-content-text">Plus que {{ days }} jours avant vos vacances à {{ city }}, {{ firstname }} !</div>
+        <div class="welcome-content-text">Plus que {{ days }} {{ dayValue }} avant vos vacances à {{ city }}, {{ firstname }} !</div>
       </div>
       <Countdown :journeyDate="date" />
     </div>
@@ -21,6 +21,11 @@ export default {
     Countdown,
     Picture
   },
+  data () {
+    return {
+      dayValue: ''
+    }
+  },
   computed: {
     ...mapState([
       'pictureUrl',
@@ -37,10 +42,21 @@ export default {
   methods: {
     ...mapActions([
       'catchPicture'
-    ])
+    ]),
+    dayNumber () {
+      switch (this.days) {
+        case 0 || 1:
+          this.dayValue = 'jour'
+          break
+        default:
+          this.dayValue = 'jours'
+      }
+      return this.dayValue
+    }
   },
   mounted () {
     this.catchPicture()
+    this.dayNumber()
   }
 }
 </script>
