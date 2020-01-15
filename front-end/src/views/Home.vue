@@ -91,9 +91,6 @@ export default {
       }
     }
   },
-  beforeMount () {
-    this.isAuth()
-  },
   mounted () {
     this.catchCities()
   }

@@ -11,6 +11,7 @@ export default {
       .catch((error) => {
         console.log(error)
         commit('userDeleted')
+        router.push('login')
       })
   },
 
