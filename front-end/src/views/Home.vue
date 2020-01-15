@@ -67,6 +67,7 @@ export default {
   },
   methods: {
     ...mapActions([
+      'isAuth',
       'catchCities',
       'sendInputValue'
     ]),

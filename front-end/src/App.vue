@@ -17,7 +17,7 @@ export default {
       'isAuth'
     ])
   },
-  mounted () {
+  created () {
     this.isAuth()
   }
 }
