@@ -67,6 +67,7 @@ export default {
   },
   methods: {
     ...mapActions([
+      'isAuth',
       'catchCities',
       'sendInputValue'
     ]),
@@ -89,6 +90,9 @@ export default {
         date: ''
       }
     }
+  },
+  beforeMount () {
+    this.isAuth()
   },
   mounted () {
     this.catchCities()

@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div v-if="!loaded">
+    Loading
+  </div>
+  <div v-else-if="loaded">
     <div class="welcome">
       <div class="welcome-content">
         <div class="welcome-content-text" v-if="dateInMilliseconds > now">Plus que {{ days }} {{ dayNumber }} avant vos vacances à {{ city }}, {{ firstname }} !</div>
@@ -39,6 +42,7 @@ export default {
   },
   computed: {
     ...mapState([
+      'loaded',
       'pictureUrl',
       'pictureAlt',
       'firstname',

@@ -4,6 +4,7 @@ export default {
   city: '',
   date: '',
   logged: false,
+  loaded: false,
   pictureUrl: '',
   pictureAlt: ''
 }

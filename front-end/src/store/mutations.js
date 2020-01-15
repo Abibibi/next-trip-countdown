@@ -22,6 +22,7 @@ export default {
   pictureReceived: (state, { url, alt }) => {
     // other syntax possible
     // equivalent: state.pictureUrl = url
+    Vue.set(state, 'loaded', true)
     Vue.set(state, 'pictureUrl', url)
     Vue.set(state, 'pictureAlt', alt)
   },
