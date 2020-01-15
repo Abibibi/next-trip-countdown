@@ -1,8 +1,8 @@
 <template>
-  <div v-if="!loaded">
-    Loading
+  <div class="loader" v-if="!loaded">
+    <div class="loader-content"></div>
   </div>
-  <div v-else-if="loaded">
+  <div v-else>
     <div class="welcome">
       <div class="welcome-content">
         <div class="welcome-content-text" v-if="dateInMilliseconds > now">Plus que {{ days }} {{ dayNumber }} avant vos vacances à {{ city }}, {{ firstname }} !</div>
