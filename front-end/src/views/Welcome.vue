@@ -77,6 +77,7 @@ export default {
       switch (true) {
         case (this.days < 2):
           this.dayNumber = 'jour'
+          console.log(this.days)
           break
         default:
           this.dayNumber = 'jours'
@@ -90,6 +91,9 @@ export default {
     window.setInterval(() => {
       this.now = Math.trunc((new Date()).getTime() / 1000)
     }, 1000)
+  },
+  updated () {
+    this.dayNumberValue()
   }
 }
 </script>

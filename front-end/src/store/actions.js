@@ -11,7 +11,7 @@ export default {
       .catch((error) => {
         console.log(error)
         commit('userDeleted')
-        router.push('login')
+        router.push({ name: 'home' })
       })
   },
 
@@ -53,7 +53,7 @@ export default {
       .then((response) => {
         console.log(response)
         commit('userDeleted')
-        router.push('/login')
+        router.push({ name: 'home' })
       })
       .catch((error) => {
         console.log(error)
