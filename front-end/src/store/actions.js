@@ -2,19 +2,6 @@ import axios from 'axios'
 import router from '@/router'
 
 export default {
-  isAuth: ({ commit }) => {
-    axios.get('http://localhost:5000/users/checkExistingUser', { withCredentials: true })
-      .then((response) => {
-        console.log(response)
-        commit('userInfoReceived', response.data)
-      })
-      .catch((error) => {
-        console.log(error)
-        commit('userDeleted')
-        router.push({ name: 'home' })
-      })
-  },
-
   catchCities: ({ commit }) => {
     axios.get('http://localhost:5000/places/', { withCredentials: true })
       .then((response) => {
