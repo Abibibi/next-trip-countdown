@@ -86,6 +86,7 @@ export default {
     }
   },
   mounted () {
+    document.title = `Séjour à ${this.city} - Mes prochaines vacances`
     this.catchPicture()
     this.dayNumberValue()
     window.setInterval(() => {

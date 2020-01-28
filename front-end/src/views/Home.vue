@@ -92,6 +92,7 @@ export default {
     }
   },
   mounted () {
+    document.title = 'Choisir une destination - Mes prochaines vacances'
     this.catchCities()
   }
 }
