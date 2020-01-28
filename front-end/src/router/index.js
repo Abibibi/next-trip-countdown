@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/login',
+    path: '/register',
     name: 'home',
     meta: {
       requiresVisitor: true
