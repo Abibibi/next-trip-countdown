@@ -1,9 +1,11 @@
+/* eslint-disable */
+
 import axios from 'axios'
 import router from '@/router'
 
 export default {
   catchCities: ({ commit }) => {
-    axios.get('http://localhost:5000/places/', { withCredentials: true })
+    axios.get(`${process.env.VUE_APP_API}/places/`, { withCredentials: true })
       .then((response) => {
         commit('citiesReceived', response.data)
       })
@@ -13,7 +15,7 @@ export default {
   },
 
   sendInputValue: ({ commit }, userInfo) => {
-    axios.post('http://localhost:5000/users/add', userInfo, { withCredentials: true })
+    axios.post(`${process.env.VUE_APP_API}/users/add`, userInfo, { withCredentials: true })
       .then((response) => {
         console.log(response)
         commit('inputSubmitted', userInfo)
@@ -25,7 +27,7 @@ export default {
   },
 
   catchPicture: ({ commit }) => {
-    axios.get('http://localhost:5000/pictures/onePicture', { withCredentials: true })
+    axios.get(`${process.env.VUE_APP_API}/pictures/onePicture`, { withCredentials: true })
       .then((response) => {
         console.log(response)
         commit('pictureReceived', response.data[0])
@@ -36,7 +38,7 @@ export default {
   },
 
   removeUser: ({ commit }) => {
-    axios.get('http://localhost:5000/users/remove', { withCredentials: true })
+    axios.get(`${process.env.VUE_APP_API}/users/remove`, { withCredentials: true })
       .then((response) => {
         console.log(response)
         commit('userDeleted')
