@@ -1,7 +1,31 @@
 Mes prochaines vacances
 ====================
 
-Objectif de l'application
+Purpose
 --------------------
 
-Mes prochaines vacances est une application permettant aux utilisateurs de voir, à chaque chargement de la page, une nouvelle photo du lieu de leurs prochaines vacances ainsi qu’un compte à rebours avant la date de leur voyage.
+Enter your next vacation place and travelling date and see a countdown with a beautiful picture of your destination. A both practical and motivating app to be ideally used as a browser homepage.
+
+Tools used
+--------------------
+
+- Backend: Node.js, Express.js, Redis
+- DB: PostgreSQL
+- Frontend: Vue.js, Vuex
+
+Language
+--------------------
+
+French
+
+Demo
+--------------------
+
+http://bit.ly/next-trip-countdown
+
+Website
+--------------------
+
+https://mesprochainesvacances.abebangwe.com/
+
+Backend deployed on Heroku, frontend deployed on Netlify.
