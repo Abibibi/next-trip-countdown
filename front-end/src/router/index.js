@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
@@ -33,7 +35,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  axios.get('http://localhost:5000/users/checkExistingUser', { withCredentials: true })
+  axios.get(`${process.env.VUE_APP_API}/users/checkExistingUser`, { withCredentials: true })
     .then((response) => {
       console.log(response)
       store.commit('userInfoReceived', response.data)

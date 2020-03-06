@@ -72,8 +72,6 @@ export default {
       'sendInputValue'
     ]),
     handleSubmit () {
-      console.log(this.user.firstname)
-
       const { firstname, city, date } = this.user
 
       const userInfo = {
