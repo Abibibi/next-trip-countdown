@@ -33,11 +33,9 @@ app.use(session({
 
 // ROUTES & API
 const usersRouter = require('./routes/users');
-const placesRouter = require('./routes/places');
 const picturesRouter = require('./routes/pictures');
 
 app.use('/users', usersRouter);
-app.use('/places', placesRouter);
 app.use('/pictures', picturesRouter);
 
 // port
