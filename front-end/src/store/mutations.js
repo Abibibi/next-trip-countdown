@@ -8,10 +8,6 @@ export default {
     state.logged = true
   },
 
-  citiesReceived: (state, payload) => {
-    state.cities = payload
-  },
-
   inputSubmitted: (state, { userName, place, travellingDate }) => {
     state.firstname = userName
     state.city = place
