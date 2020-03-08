@@ -68,7 +68,6 @@ export default {
   methods: {
     ...mapActions([
       'isAuth',
-      'catchCities',
       'sendInputValue'
     ]),
     handleSubmit () {
@@ -91,7 +90,6 @@ export default {
   },
   mounted () {
     document.title = 'Choisir une destination - Mes prochaines vacances'
-    this.catchCities()
   }
 }
 </script>
