@@ -3,6 +3,16 @@
     <div class="loader-content"></div>
   </div>
   <div v-else>
+    <div class="credits">Crédit photo : {{ pictureAuthor }} de
+      <a
+        class="credits-link"
+        :href="`${picturePixabayURL}`"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+      Pixabay
+      </a>
+    </div>
     <div class="welcome">
       <div class="welcome-content">
         <div class="welcome-content-text" v-if="dateInMilliseconds > now">Plus que {{ days }} {{ dayNumber }} avant vos vacances à {{ city }}, {{ firstname }} !</div>
@@ -17,14 +27,6 @@
         :countMinutes="minutes"
         :countSeconds="seconds"
       />
-    </div>
-    <div class="credits">Crédit photo : {{ pictureAuthor }} de
-      <a
-        class="credits-link"
-        :href="`${picturePixabayURL}`"
-        target="_blank"
-        rel="noopener noreferrer">Pixabay
-      </a>
     </div>
     <Picture
       :smallPicture="smallSizedPicture"
