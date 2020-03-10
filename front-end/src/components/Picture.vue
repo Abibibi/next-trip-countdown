@@ -1,6 +1,11 @@
 <template>
   <div class="picture">
-    <img class="picture-content" :alt="altObtained" :src="pictureObtained">
+    <img
+      class="picture-content"
+      :alt="pictureAlternative"
+      :src="pictureMedium"
+      :srcset="`${pictureSmall} 640w, ${pictureMedium} 1280w, ${pictureLarge} 1920w`"
+    >
   </div>
 </template>
 
@@ -8,15 +13,23 @@
 
 export default {
   props: {
-    picture: String,
+    smallPicture: String,
+    mediumPicture: String,
+    largePicture: String,
     pictureAlt: String
   },
   // using computed property to get updated data from state
   computed: {
-    pictureObtained () {
-      return this.picture
+    pictureSmall () {
+      return this.smallPicture
     },
-    altObtained () {
+    pictureMedium () {
+      return this.mediumPicture
+    },
+    pictureLarge () {
+      return this.largePicture
+    },
+    pictureAlternative () {
       return this.pictureAlt
     }
   }

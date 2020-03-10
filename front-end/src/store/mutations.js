@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 export default {
   userInfoReceived: (state, { name, travellingDate, placeName }) => {
     state.firstname = name
@@ -15,12 +13,21 @@ export default {
     state.logged = true
   },
 
-  pictureReceived: (state, { url, alt }) => {
-    // other syntax possible
-    // equivalent: state.pictureUrl = url
-    Vue.set(state, 'loaded', true)
-    Vue.set(state, 'pictureUrl', url)
-    Vue.set(state, 'pictureAlt', alt)
+  pictureReceived: (state, {
+    smallSize,
+    mediumSize,
+    largeSize,
+    alt,
+    author,
+    pixabayURL
+  }) => {
+    state.loaded = true
+    state.smallSizedPicture = smallSize
+    state.mediumSizedPicture = mediumSize
+    state.largeSizedPicture = largeSize
+    state.pictureAlt = alt
+    state.pictureAuthor = author
+    state.picturePixabayURL = pixabayURL
   },
 
   userDeleted: (state) => {
@@ -28,7 +35,11 @@ export default {
     state.city = ''
     state.date = ''
     state.logged = false
-    state.pictureUrl = ''
+    state.smallSizedPicture = ''
+    state.mediumSizedPicture = ''
+    state.largeSizedPicture = ''
     state.pictureAlt = ''
+    state.pictureAuthor = ''
+    state.picturePixabayURL = ''
   }
 }

@@ -17,9 +17,21 @@
         :countMinutes="minutes"
         :countSeconds="seconds"
       />
-      <!-- <div class="welcome-other">Choisir une autre destination</div> -->
     </div>
-    <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
+    <div class="credits">Crédit photo : {{ pictureAuthor }} de
+      <a
+        class="credits-link"
+        :href="`${picturePixabayURL}`"
+        target="_blank"
+        rel="noopener noreferrer">Pixabay
+      </a>
+    </div>
+    <Picture
+      :smallPicture="smallSizedPicture"
+      :mediumPicture="mediumSizedPicture"
+      :largePicture="largeSizedPicture"
+      :pictureAlt="pictureAlt"
+    />
   </div>
 </template>
 
@@ -43,8 +55,12 @@ export default {
   computed: {
     ...mapState([
       'loaded',
-      'pictureUrl',
+      'smallSizedPicture',
+      'mediumSizedPicture',
+      'largeSizedPicture',
       'pictureAlt',
+      'pictureAuthor',
+      'picturePixabayURL',
       'firstname',
       'city',
       'date'
