@@ -17,7 +17,14 @@
         :countMinutes="minutes"
         :countSeconds="seconds"
       />
-      <!-- <div class="welcome-other">Choisir une autre destination</div> -->
+    </div>
+    <div class="credits">Crédit photo : {{ pictureAuthor }} de
+      <a
+        class="credits-link"
+        :href="`${picturePixabayURL}`"
+        target="_blank"
+        rel="noopener noreferrer">Pixabay
+      </a>
     </div>
     <Picture
       :smallPicture="smallSizedPicture"
