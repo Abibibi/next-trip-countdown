@@ -4,6 +4,10 @@ export default {
   date: '',
   logged: false,
   loaded: false,
-  pictureUrl: '',
-  pictureAlt: ''
+  smallSizedPicture: '',
+  mediumSizedPicture: '',
+  largeSizedPicture: '',
+  pictureAlt: '',
+  pictureAuthor: '',
+  picturePixabayURL: ''
 }

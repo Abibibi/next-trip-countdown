@@ -19,7 +19,12 @@
       />
       <!-- <div class="welcome-other">Choisir une autre destination</div> -->
     </div>
-    <Picture :picture="pictureUrl" :pictureAlt="pictureAlt" />
+    <Picture
+      :smallPicture="smallSizedPicture"
+      :mediumPicture="mediumSizedPicture"
+      :largePicture="largeSizedPicture"
+      :pictureAlt="pictureAlt"
+    />
   </div>
 </template>
 
@@ -43,8 +48,12 @@ export default {
   computed: {
     ...mapState([
       'loaded',
-      'pictureUrl',
+      'smallSizedPicture',
+      'mediumSizedPicture',
+      'largeSizedPicture',
       'pictureAlt',
+      'pictureAuthor',
+      'picturePixabayURL',
       'firstname',
       'city',
       'date'
