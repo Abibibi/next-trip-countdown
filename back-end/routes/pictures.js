@@ -13,14 +13,21 @@ router.route('/onePicture').get(authMiddleware, async (req, res) => {
         https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${city}&image_type=photo&orientation=horizontal&safesearch=true&per_page=200`
     );
 
-    const onePicture = {
+    const oneRandomPicture = pictures.data.hits[Math.floor(Math.random() * pictures.data.hits.length)];
+
+    const allOnePictureInfo = {
         // to pick a random picture from API call response
-        url: pictures.data.hits[Math.floor(Math.random() * pictures.data.hits.length)].largeImageURL,
-        // no alt is provided by Pixabay API -_-
-        alt: ''
-    }
+        smallSize: oneRandomPicture.webformatURL,
+        mediumSize: oneRandomPicture.largeImageURL,
+        largeSize: oneRandomPicture.fullHDURL,
+        // no alt is provided by Pixabay API -_- thus, using the tags key in API response
+        alt: oneRandomPicture.tags,
+        // to credit Pixabay on each picture
+        author: oneRandomPicture.user,
+        pixabayURL: oneRandomPicture.pageURL
+    };
     
-    res.json(onePicture);
+    res.json(allOnePictureInfo);
 });
 
 module.exports = router;
