@@ -33,13 +33,16 @@
         </form>
       </div>
     </div>
-    <Picture :picture="beach" pictureAlt="Plage vue en plongée" />
+    <Picture
+      smallPicture="https://pixabay.com/get/5ee3d7404e54b114a6d9807cc32837761422dfe05b52794f722c7bd5_640.jpg"
+      mediumPicture="https://pixabay.com/get/5ee3d7404e54b114a6d9807cc32837761422dfe05b52794f722c7bd5_1280.jpg"
+      largePicture="https://pixabay.com/get/5ee3d7404e54b114a6d9807cc32837761422dfe05b52794f722c7bd5_1920.jpg"
+      pictureAlt="Plage vue en plongée" />
   </div>
 </template>
 
 <script>
 
-import beach from '@/assets/images/plage.jpg'
 import Field from '@/components/Field.vue'
 import Picture from '@/components/Picture.vue'
 import { mapState, mapActions } from 'vuex'
@@ -52,7 +55,6 @@ export default {
   },
   data () {
     return {
-      beach,
       user: {
         firstname: '',
         city: '',
