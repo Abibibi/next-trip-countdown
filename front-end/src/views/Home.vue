@@ -34,9 +34,9 @@
       </div>
     </div>
     <Picture
-      smallPicture="https://pixabay.com/get/5ee3d7404e54b114a6d9807cc32837761422dfe05b52794f722c7bd5_640.jpg"
-      mediumPicture="https://pixabay.com/get/5ee3d7404e54b114a6d9807cc32837761422dfe05b52794f722c7bd5_1280.jpg"
-      largePicture="https://pixabay.com/get/5ee3d7404e54b114a6d9807cc32837761422dfe05b52794f722c7bd5_1920.jpg"
+      smallPicture="https://www.cjoint.com/doc/20_03/JCnw7uKOuzA_beach-832346-640.jpg"
+      mediumPicture="https://www.cjoint.com/doc/20_03/JCnw70caVzA_beach-832346-1280.jpg"
+      largePicture="https://www.cjoint.com/doc/20_03/JCnxam6xXPA_beach-832346-1920.jpg"
       pictureAlt="Plage vue en plongée" />
   </div>
 </template>
