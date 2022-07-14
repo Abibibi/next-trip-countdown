@@ -26,6 +26,4 @@ http://bit.ly/next-trip-countdown
 Website
 --------------------
 
-https://mesprochainesvacances.abebangwe.com/
-
 Backend deployed on Heroku, frontend deployed on Netlify.
